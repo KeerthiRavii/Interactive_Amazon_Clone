@@ -12,10 +12,12 @@ import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions } from '../data/deliveryOptions.js';
 
 hello();
+
 const today=dayjs();
 const deliveryDate =today.add(7,'days');
 console.log(deliveryDate.format('dddd ,MMMM D'));
 
+function renderOrderSummary(){
 
 let cartSummaryHTML='';
 
@@ -215,8 +217,11 @@ document.querySelectorAll('.js-save-link')
       //const productId =element.dataset.productId;
      // const deliveryOptionId=element.dataset.deliveryOptionId;
       updateDeliveryOption(productId,deliveryOptionId);
+      renderOrderSummary();
     });
 
   });
 
+}
 
+renderOrderSummary();
